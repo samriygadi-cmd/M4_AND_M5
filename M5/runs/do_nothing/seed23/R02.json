@@ -1,0 +1,17 @@
+{
+ "status": "ok",
+ "terminated_by": "no_conflicts",
+ "reported_conflicts": [],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": []
+  }
+ ],
+ "calls": [],
+ "error": null,
+ "wall_s": 0.0,
+ "condition": "do_nothing",
+ "seed": 23,
+ "case_id": "R02"
+}
