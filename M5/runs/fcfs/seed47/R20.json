@@ -1,0 +1,46 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  [
+   "80472-1",
+   "80561-1"
+  ],
+  [
+   "80522-1",
+   "80561-1"
+  ],
+  [
+   "80551-1",
+   "80561-1"
+  ]
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "80561-1",
+     "new_eta": "2025-12-25 17:25",
+     "new_etd": "2025-12-31 15:09"
+    },
+    {
+     "vessel_id": "80522-1",
+     "new_eta": "2025-12-31 15:09",
+     "new_etd": "2026-01-03 20:20"
+    },
+    {
+     "vessel_id": "80551-1",
+     "new_eta": "2026-01-03 20:20",
+     "new_etd": "2026-01-04 21:34"
+    }
+   ]
+  }
+ ],
+ "calls": [],
+ "error": null,
+ "wall_s": 0.0,
+ "condition": "fcfs",
+ "seed": 47,
+ "case_id": "R20"
+}

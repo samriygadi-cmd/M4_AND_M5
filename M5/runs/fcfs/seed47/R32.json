@@ -1,0 +1,28 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  [
+   "78976-1",
+   "79049-2"
+  ]
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "79049-2",
+     "new_eta": "2025-11-24 17:47",
+     "new_etd": "2025-11-24 21:04"
+    }
+   ]
+  }
+ ],
+ "calls": [],
+ "error": null,
+ "wall_s": 0.0,
+ "condition": "fcfs",
+ "seed": 47,
+ "case_id": "R32"
+}
