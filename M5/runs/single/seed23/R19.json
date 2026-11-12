@@ -1,0 +1,70 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "79577-1",
+   "b": "79599-1",
+   "shared_modules": [
+    1
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "79599-1",
+     "new_eta": "2025-11-28 04:01",
+     "new_etd": "2025-11-28 23:55"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "79599-1",
+     "new_eta": "2025-11-28 04:01",
+     "new_etd": "2025-11-28 23:55"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 593,
+   "tokens_out": 119,
+   "latency_s": 1.0407149420000223,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n79577-1,32G,1,2025-11-26 03:32,2025-11-28 04:01,2909\n79599-1,32G,1,2025-11-28 03:30,2025-11-28 23:24,1194\n79265-1,32G,1,2025-11-24 22:26,2025-11-25 16:11,1065\n",
+   "raw": "{\"conflicts\": [{\"a\": \"79577-1\", \"b\": \"79599-1\", \"shared_modules\": [1]}], \"changes\": [{\"vessel_id\": \"79599-1\", \"new_eta\": \"2025-11-28 04:01\", \"new_etd\": \"2025-11-28 23:55\"}], \"approved\": false, \"notes\": \"Delayed 79599-1 to start after 79577-1's ETD to resolve the shared module 1 overlap.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 800,
+   "tokens_out": 117,
+   "latency_s": 1.214651119999985,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"79577-1\", \"b\": \"79599-1\", \"shared_modules\": [1]}], \"changes\": [{\"vessel_id\": \"79599-1\", \"new_eta\": \"2025-11-28 04:01\", \"new_etd\": \"2025-11-28 23:55\"}], \"approved\": true, \"notes\": \"79599-1 moved to start at 79577-1's ETD; no remaining overlaps on module 1.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.256,
+ "condition": "single",
+ "seed": 23,
+ "case_id": "R19"
+}

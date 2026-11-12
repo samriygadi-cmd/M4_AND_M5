@@ -1,0 +1,97 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "74411-1",
+   "b": "74410-1",
+   "shared_modules": [
+    1,
+    2,
+    3,
+    4
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "74411-1",
+     "new_eta": "2025-05-12 13:03",
+     "new_etd": "2025-05-12 17:38"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "74411-1",
+     "new_eta": "2025-05-12 13:03",
+     "new_etd": "2025-05-12 17:38"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 3,
+   "changes": [
+    {
+     "vessel_id": "74411-1",
+     "new_eta": "2025-05-12 22:00",
+     "new_etd": "2025-05-13 02:35"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 650,
+   "tokens_out": 132,
+   "latency_s": 1.0958573629999933,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n74411-1,20A,\"1,2,3,4\",2025-05-12 08:28,2025-05-12 13:03,275\n74410-3,20A,\"3,4,5,6\",2025-05-12 14:05,2025-05-12 22:00,475\n74321-1,20A,\"1,2,3,4,5\",2025-05-11 06:46,2025-05-11 21:47,901\n74410-1,20A,\"1,2,3,4\",2025-05-12 06:31,2025-05-12 08:49,138\n",
+   "raw": "{\"conflicts\": [{\"a\": \"74411-1\", \"b\": \"74410-1\", \"shared_modules\": [1, 2, 3, 4]}], \"changes\": [{\"vessel_id\": \"74411-1\", \"new_eta\": \"2025-05-12 13:03\", \"new_etd\": \"2025-05-12 17:38\"}], \"approved\": false, \"notes\": \"Delayed 74411-1 to start after 74410-1 ends; no conflict with 74410-3 since they share no modules.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 870,
+   "tokens_out": 161,
+   "latency_s": 1.3878202450000003,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"74411-1\", \"b\": \"74410-1\", \"shared_modules\": [1, 2, 3, 4]}], \"changes\": [{\"vessel_id\": \"74411-1\", \"new_eta\": \"2025-05-12 13:03\", \"new_etd\": \"2025-05-12 17:38\"}], \"approved\": false, \"notes\": \"Re-check: 74411-1 (13:03-17:38) overlaps 74410-3 (14:05-22:00) on modules 3,4, so a new conflict is created; must delay 74411-1 past 22:00 instead.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 3,
+   "tokens_in": 1119,
+   "tokens_out": 127,
+   "latency_s": 1.3716648350000469,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"74411-1\", \"b\": \"74410-1\", \"shared_modules\": [1, 2, 3, 4]}], \"changes\": [{\"vessel_id\": \"74411-1\", \"new_eta\": \"2025-05-12 22:00\", \"new_etd\": \"2025-05-13 02:35\"}], \"approved\": true, \"notes\": \"74411-1 delayed to 22:00 (after 74410-3 ends); no overlaps remain on shared modules.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 3.856,
+ "condition": "single",
+ "seed": 23,
+ "case_id": "R06"
+}

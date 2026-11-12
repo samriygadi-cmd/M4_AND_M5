@@ -1,0 +1,70 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "76514-1",
+   "b": "76365-1",
+   "shared_modules": [
+    3
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "76514-1",
+     "new_eta": "2025-07-25 06:51",
+     "new_etd": "2025-07-26 02:11"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "76514-1",
+     "new_eta": "2025-07-25 06:51",
+     "new_etd": "2025-07-26 02:11"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 607,
+   "tokens_out": 128,
+   "latency_s": 1.2382053510000333,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n76514-1,22C,\"1,2,3\",2025-07-25 04:03,2025-07-25 23:23,1160\n76365-1,22C,\"3,4,5\",2025-07-24 09:11,2025-07-25 06:51,1300\n76388-1,22C,\"1,2,3,4\",2025-07-26 03:03,2025-07-27 08:33,1770\n",
+   "raw": "{\"conflicts\": [{\"a\": \"76514-1\", \"b\": \"76365-1\", \"shared_modules\": [3]}], \"changes\": [{\"vessel_id\": \"76514-1\", \"new_eta\": \"2025-07-25 06:51\", \"new_etd\": \"2025-07-26 02:11\"}], \"approved\": false, \"notes\": \"Delayed 76514-1 to start after 76365-1's ETD, resolving the shared module 3 overlap; no conflict with 76388-1.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 823,
+   "tokens_out": 120,
+   "latency_s": 1.0792211809999799,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"76514-1\", \"b\": \"76365-1\", \"shared_modules\": [3]}], \"changes\": [{\"vessel_id\": \"76514-1\", \"new_eta\": \"2025-07-25 06:51\", \"new_etd\": \"2025-07-26 02:11\"}], \"approved\": true, \"notes\": \"76514-1 moved to 76365-1's ETD; no remaining overlaps on shared modules with 76388-1.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.318,
+ "condition": "single",
+ "seed": 23,
+ "case_id": "R11"
+}

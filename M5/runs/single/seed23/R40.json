@@ -1,0 +1,70 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "78720-3",
+   "b": "78641-4",
+   "shared_modules": [
+    1
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "78641-4",
+     "new_eta": "2025-11-06 17:05",
+     "new_etd": "2025-11-08 01:04"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "78641-4",
+     "new_eta": "2025-11-06 17:05",
+     "new_etd": "2025-11-08 01:04"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 558,
+   "tokens_out": 117,
+   "latency_s": 0.9897098509999864,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n78641-4,90A,1,2025-10-31 20:43,2025-11-02 04:42,1919\n78720-3,90A,1,2025-10-26 22:48,2025-11-06 17:05,15497\n",
+   "raw": "{\"conflicts\": [{\"a\": \"78720-3\", \"b\": \"78641-4\", \"shared_modules\": [1]}], \"changes\": [{\"vessel_id\": \"78641-4\", \"new_eta\": \"2025-11-06 17:05\", \"new_etd\": \"2025-11-08 01:04\"}], \"approved\": false, \"notes\": \"Delayed 78641-4 to start when 78720-3 releases module 1, resolving the only conflict.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 763,
+   "tokens_out": 123,
+   "latency_s": 1.2062966839999945,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"78720-3\", \"b\": \"78641-4\", \"shared_modules\": [1]}], \"changes\": [{\"vessel_id\": \"78641-4\", \"new_eta\": \"2025-11-06 17:05\", \"new_etd\": \"2025-11-08 01:04\"}], \"approved\": true, \"notes\": \"78641-4 now starts exactly when 78720-3 ends (touching, not overlapping), so no conflicts remain and all rules hold.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.196,
+ "condition": "single",
+ "seed": 23,
+ "case_id": "R40"
+}

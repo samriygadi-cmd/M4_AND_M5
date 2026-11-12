@@ -1,0 +1,32 @@
+{
+ "status": "ok",
+ "terminated_by": "no_conflicts",
+ "reported_conflicts": [],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 593,
+   "tokens_out": 36,
+   "latency_s": 0.893134233000012,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n74376-1,32C,1,2025-05-07 17:54,2025-05-08 19:07,1513\n74368-1,32C,1,2025-05-06 09:36,2025-05-07 15:00,1764\n74340-1,32C,1,2025-05-05 13:41,2025-05-06 10:00,1219\n",
+   "raw": "{\"conflicts\": [], \"changes\": [], \"approved\": true, \"notes\": \"All three vessels share module 1 but their stays are sequential with no time overlap.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 0.893,
+ "condition": "single",
+ "seed": 23,
+ "case_id": "R17"
+}

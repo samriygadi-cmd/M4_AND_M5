@@ -1,0 +1,32 @@
+{
+ "status": "ok",
+ "terminated_by": "no_conflicts",
+ "reported_conflicts": [],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 558,
+   "tokens_out": 56,
+   "latency_s": 1.2332708060000073,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n73723-2,90A,1,2025-04-05 07:34,2025-04-12 15:59,10585\n73430-4,90A,1,2025-04-03 01:49,2025-04-05 07:34,3225\n",
+   "raw": "{\"conflicts\": [], \"changes\": [], \"approved\": true, \"notes\": \"The two vessels share module 1 but their stays only touch at 2025-04-05 07:34, which is not an overlap, so there are no conflicts.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 1.233,
+ "condition": "single",
+ "seed": 23,
+ "case_id": "T02"
+}
