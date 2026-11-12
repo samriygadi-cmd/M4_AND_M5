@@ -1,0 +1,33 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  [
+   "74403-1",
+   "74474-1"
+  ]
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "74474-1",
+     "new_eta": "2025-05-15 11:03",
+     "new_etd": "2025-05-16 12:57"
+    },
+    {
+     "vessel_id": "74543-1",
+     "new_eta": "2025-05-16 12:57",
+     "new_etd": "2025-05-16 23:56"
+    }
+   ]
+  }
+ ],
+ "calls": [],
+ "error": null,
+ "wall_s": 0.0,
+ "condition": "fcfs",
+ "seed": 11,
+ "case_id": "R25"
+}
