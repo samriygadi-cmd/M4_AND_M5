@@ -1,0 +1,147 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "60403-1",
+   "b": "60821-1",
+   "shared_modules": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "a": "60403-1",
+   "b": "60462-1",
+   "shared_modules": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ]
+  },
+  {
+   "a": "60398-1",
+   "b": "60462-1",
+   "shared_modules": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+   ]
+  },
+  {
+   "a": "60576-1",
+   "b": "60462-1",
+   "shared_modules": [
+    13,
+    14,
+    15,
+    16,
+    17
+   ]
+  },
+  {
+   "a": "60576-1",
+   "b": "60765-1",
+   "shared_modules": [
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "60462-1",
+     "new_eta": "2025-01-23 22:58",
+     "new_etd": "2025-01-24 19:22"
+    },
+    {
+     "vessel_id": "60576-1",
+     "new_eta": "2025-01-24 19:22",
+     "new_etd": "2025-01-25 12:16"
+    },
+    {
+     "vessel_id": "60765-1",
+     "new_eta": "2025-01-25 12:16",
+     "new_etd": "2025-01-26 02:16"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "60462-1",
+     "new_eta": "2025-01-23 22:58",
+     "new_etd": "2025-01-24 19:22"
+    },
+    {
+     "vessel_id": "60576-1",
+     "new_eta": "2025-01-24 19:22",
+     "new_etd": "2025-01-25 12:16"
+    },
+    {
+     "vessel_id": "60765-1",
+     "new_eta": "2025-01-25 12:16",
+     "new_etd": "2025-01-26 02:16"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 1023,
+   "tokens_out": 410,
+   "latency_s": 2.2061577119999924,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n60403-1,24B,\"2,3,4,5,6,7,8\",2025-01-21 18:11,2025-01-23 22:58,3167\n71268-1,24B,\"8,9,10,11,12\",2025-01-19 11:00,2025-01-19 21:19,619\n60398-1,24B,\"13,14,15,16,17,18,19,20\",2025-01-19 12:54,2025-01-21 06:52,2518\n60893-1,24B,\"15,16,17,18,19,20\",2025-01-18 02:26,2025-01-18 13:15,649\n61111-1,24B,\"9,10,11,12\",2025-01-18 07:19,2025-01-18 20:35,796\n60576-1,24B,\"13,14,15,16,17\",2025-01-22 12:32,2025-01-23 05:26,1014\n60462-1,24B,\"12,13,14,15,16,17,18,19\",2025-01-21 14:54,2025-01-22 11:18,1224\n60716-1,24B,\"2,3,4,5\",2025-01-18 19:40,2025-01-19 19:55,1455\n60821-1,24B,\"2,3,4,5,6,7,8\",2025-01-20 13:57,2025-01-21 09:53,1196\n60765-1,24B,\"13,14,15,16,17,18\",2025-01-23 12:13,2025-01-24 02:13,840\n61112-1,24B,\"2,3,4,5,6\",2025-01-18 00:50,2025-01-18 11:40,650\n60730-1,24B,\"14,15,16,17,18,19,20\",2025-01-16 02:00,2025-01-18 01:16,2836\n",
+   "raw": "{\"conflicts\": [{\"a\": \"60403-1\", \"b\": \"60821-1\", \"shared_modules\": [2, 3, 4, 5, 6, 7, 8]}, {\"a\": \"60403-1\", \"b\": \"60462-1\", \"shared_modules\": [12, 13, 14, 15, 16, 17, 18, 19]}, {\"a\": \"60398-1\", \"b\": \"60462-1\", \"shared_modules\": [13, 14, 15, 16, 17, 18, 19, 20]}, {\"a\": \"60576-1\", \"b\": \"60462-1\", \"shared_modules\": [13, 14, 15, 16, 17]}, {\"a\": \"60576-1\", \"b\": \"60765-1\", \"shared_modules\": [13, 14, 15, 16, 17, 18]}], \"changes\": [{\"vessel_id\": \"60462-1\", \"new_eta\": \"2025-01-23 22:58\", \"new_etd\": \"2025-01-24 19:22\"}, {\"vessel_id\": \"60576-1\", \"new_eta\": \"2025-01-24 19:22\", \"new_etd\": \"2025-01-25 12:16\"}, {\"vessel_id\": \"60765-1\", \"new_eta\": \"2025-01-25 12:16\", \"new_etd\": \"2025-01-26 02:16\"}], \"approved\": false, \"notes\": \"Delayed 60462-1 past 60403-1, then chained 60576-1 and 60765-1 to clear shared-module overlaps.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 1521,
+   "tokens_out": 401,
+   "latency_s": 1.6855815620000385,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"60403-1\", \"b\": \"60821-1\", \"shared_modules\": [2, 3, 4, 5, 6, 7, 8]}, {\"a\": \"60403-1\", \"b\": \"60462-1\", \"shared_modules\": [12, 13, 14, 15, 16, 17, 18, 19]}, {\"a\": \"60398-1\", \"b\": \"60462-1\", \"shared_modules\": [13, 14, 15, 16, 17, 18, 19, 20]}, {\"a\": \"60576-1\", \"b\": \"60462-1\", \"shared_modules\": [13, 14, 15, 16, 17]}, {\"a\": \"60576-1\", \"b\": \"60765-1\", \"shared_modules\": [13, 14, 15, 16, 17, 18]}], \"changes\": [{\"vessel_id\": \"60462-1\", \"new_eta\": \"2025-01-23 22:58\", \"new_etd\": \"2025-01-24 19:22\"}, {\"vessel_id\": \"60576-1\", \"new_eta\": \"2025-01-24 19:22\", \"new_etd\": \"2025-01-25 12:16\"}, {\"vessel_id\": \"60765-1\", \"new_eta\": \"2025-01-25 12:16\", \"new_etd\": \"2025-01-26 02:16\"}], \"approved\": true, \"notes\": \"All conflicts resolved; moved vessels keep berth/modules/duration, only move forward, and no remaining overlaps on shared modules.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 3.892,
+ "condition": "single",
+ "seed": 11,
+ "case_id": "N05"
+}

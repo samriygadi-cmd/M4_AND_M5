@@ -1,0 +1,73 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "75768-1",
+   "b": "75340-2",
+   "shared_modules": [
+    13,
+    14,
+    15,
+    16
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "75340-2",
+     "new_eta": "2025-07-05 01:59",
+     "new_etd": "2025-07-05 11:05"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "75340-2",
+     "new_eta": "2025-07-05 01:59",
+     "new_etd": "2025-07-05 11:05"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 609,
+   "tokens_out": 124,
+   "latency_s": 1.378478217999998,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n75121-1,29A,\"18,19,20,21\",2025-07-03 05:42,2025-07-05 03:07,2725\n75768-1,29A,\"13,14,15,16\",2025-07-04 10:48,2025-07-05 01:59,911\n75340-2,29A,\"13,14,15,16\",2025-07-05 00:35,2025-07-05 09:41,546\n",
+   "raw": "{\"conflicts\": [{\"a\": \"75768-1\", \"b\": \"75340-2\", \"shared_modules\": [13, 14, 15, 16]}], \"changes\": [{\"vessel_id\": \"75340-2\", \"new_eta\": \"2025-07-05 01:59\", \"new_etd\": \"2025-07-05 11:05\"}], \"approved\": false, \"notes\": \"Delayed 75340-2 to start when 75768-1 releases shared modules 13-16.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 821,
+   "tokens_out": 132,
+   "latency_s": 1.1724862399999552,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"75768-1\", \"b\": \"75340-2\", \"shared_modules\": [13, 14, 15, 16]}], \"changes\": [{\"vessel_id\": \"75340-2\", \"new_eta\": \"2025-07-05 01:59\", \"new_etd\": \"2025-07-05 11:05\"}], \"approved\": true, \"notes\": \"75340-2 moved to 01:59 (75768-1 etd); no remaining conflicts, duration preserved, berth/modules unchanged.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.551,
+ "condition": "single",
+ "seed": 11,
+ "case_id": "R15"
+}

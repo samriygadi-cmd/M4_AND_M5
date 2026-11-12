@@ -1,0 +1,97 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "76365-1",
+   "b": "76514-1",
+   "shared_modules": [
+    3
+   ]
+  },
+  {
+   "a": "76514-1",
+   "b": "76388-1",
+   "shared_modules": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "a": "76365-1",
+   "b": "76388-1",
+   "shared_modules": [
+    3,
+    4
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "76365-1",
+     "new_eta": "2025-07-25 23:23",
+     "new_etd": "2025-07-26 21:03"
+    },
+    {
+     "vessel_id": "76388-1",
+     "new_eta": "2025-07-27 08:33",
+     "new_etd": "2025-07-28 14:03"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "76365-1",
+     "new_eta": "2025-07-25 23:23",
+     "new_etd": "2025-07-26 21:03"
+    },
+    {
+     "vessel_id": "76388-1",
+     "new_eta": "2025-07-27 08:33",
+     "new_etd": "2025-07-28 14:03"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 607,
+   "tokens_out": 227,
+   "latency_s": 1.3655104339999866,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n76514-1,22C,\"1,2,3\",2025-07-25 04:03,2025-07-25 23:23,1160\n76388-1,22C,\"1,2,3,4\",2025-07-26 03:03,2025-07-27 08:33,1770\n76365-1,22C,\"3,4,5\",2025-07-24 09:11,2025-07-25 06:51,1300\n",
+   "raw": "{\"conflicts\": [{\"a\": \"76365-1\", \"b\": \"76514-1\", \"shared_modules\": [3]}, {\"a\": \"76514-1\", \"b\": \"76388-1\", \"shared_modules\": [1, 2, 3]}, {\"a\": \"76365-1\", \"b\": \"76388-1\", \"shared_modules\": [3, 4]}], \"changes\": [{\"vessel_id\": \"76365-1\", \"new_eta\": \"2025-07-25 23:23\", \"new_etd\": \"2025-07-26 21:03\"}, {\"vessel_id\": \"76388-1\", \"new_eta\": \"2025-07-27 08:33\", \"new_etd\": \"2025-07-28 14:03\"}], \"approved\": false, \"notes\": \"Delayed 76365-1 past 76514-1 and 76388-1 past both to clear shared-module overlaps.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 922,
+   "tokens_out": 238,
+   "latency_s": 1.5251190680000377,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"76365-1\", \"b\": \"76514-1\", \"shared_modules\": [3]}, {\"a\": \"76514-1\", \"b\": \"76388-1\", \"shared_modules\": [1, 2, 3]}, {\"a\": \"76365-1\", \"b\": \"76388-1\", \"shared_modules\": [3, 4]}], \"changes\": [{\"vessel_id\": \"76365-1\", \"new_eta\": \"2025-07-25 23:23\", \"new_etd\": \"2025-07-26 21:03\"}, {\"vessel_id\": \"76388-1\", \"new_eta\": \"2025-07-27 08:33\", \"new_etd\": \"2025-07-28 14:03\"}], \"approved\": true, \"notes\": \"76365-1 now ends before 76388-1 starts and after 76514-1 ends; 76388-1 starts after both, so no shared-module overlaps remain.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.891,
+ "condition": "single",
+ "seed": 11,
+ "case_id": "R11"
+}

@@ -1,0 +1,32 @@
+{
+ "status": "ok",
+ "terminated_by": "no_conflicts",
+ "reported_conflicts": [],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 558,
+   "tokens_out": 52,
+   "latency_s": 0.8459848410000177,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n71486-1,32C,1,2025-01-16 12:20,2025-01-18 05:38,2478\n71519-1,32C,1,2025-01-15 16:15,2025-01-16 12:20,1205\n",
+   "raw": "{\"conflicts\": [], \"changes\": [], \"approved\": true, \"notes\": \"The two vessels share module 1 but their stays only touch (71519-1 etd equals 71486-1 eta), so there is no conflict.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 0.846,
+ "condition": "single",
+ "seed": 11,
+ "case_id": "T01"
+}
