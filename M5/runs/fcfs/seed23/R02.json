@@ -1,0 +1,33 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  [
+   "80211-1",
+   "80231-1"
+  ]
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "80211-1",
+     "new_eta": "2025-12-28 14:49",
+     "new_etd": "2025-12-28 16:29"
+    },
+    {
+     "vessel_id": "80231-3",
+     "new_eta": "2025-12-28 16:29",
+     "new_etd": "2025-12-28 22:00"
+    }
+   ]
+  }
+ ],
+ "calls": [],
+ "error": null,
+ "wall_s": 0.0,
+ "condition": "fcfs",
+ "seed": 23,
+ "case_id": "R02"
+}
