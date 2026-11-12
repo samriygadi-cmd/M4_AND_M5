@@ -1,0 +1,70 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "75511-2",
+   "b": "75507-2",
+   "shared_modules": [
+    1
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "75511-2",
+     "new_eta": "2025-06-19 10:40",
+     "new_etd": "2025-06-20 00:03"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "75511-2",
+     "new_eta": "2025-06-19 10:40",
+     "new_etd": "2025-06-20 00:03"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 557,
+   "tokens_out": 117,
+   "latency_s": 1.1149703909999857,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n75511-2,90A,1,2025-06-17 07:31,2025-06-17 20:54,803\n75507-2,90A,1,2025-06-17 10:43,2025-06-19 10:40,2877\n",
+   "raw": "{\"conflicts\": [{\"a\": \"75511-2\", \"b\": \"75507-2\", \"shared_modules\": [1]}], \"changes\": [{\"vessel_id\": \"75511-2\", \"new_eta\": \"2025-06-19 10:40\", \"new_etd\": \"2025-06-20 00:03\"}], \"approved\": false, \"notes\": \"Delayed 75511-2 to start after 75507-2's ETD since both occupy module 1.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 762,
+   "tokens_out": 117,
+   "latency_s": 1.0224354800000128,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"75511-2\", \"b\": \"75507-2\", \"shared_modules\": [1]}], \"changes\": [{\"vessel_id\": \"75511-2\", \"new_eta\": \"2025-06-19 10:40\", \"new_etd\": \"2025-06-20 00:03\"}], \"approved\": true, \"notes\": \"75511-2 moved to start at 75507-2's ETD; no remaining overlap on module 1.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.138,
+ "condition": "single",
+ "seed": 47,
+ "case_id": "R38"
+}

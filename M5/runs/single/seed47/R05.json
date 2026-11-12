@@ -1,0 +1,73 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "80411-1",
+   "b": "80419-1",
+   "shared_modules": [
+    2,
+    3,
+    4,
+    5
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "80419-1",
+     "new_eta": "2025-12-29 19:00",
+     "new_etd": "2025-12-29 22:50"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "80419-1",
+     "new_eta": "2025-12-29 19:00",
+     "new_etd": "2025-12-29 22:50"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 648,
+   "tokens_out": 132,
+   "latency_s": 1.320954290999964,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n80415-2,19A,\"2,3,4,5\",2025-12-28 07:27,2025-12-28 22:46,919\n80527-1,19A,\"2,3,4,5\",2025-12-30 18:46,2025-12-30 23:23,277\n80411-1,19A,\"2,3,4,5\",2025-12-29 06:23,2025-12-29 19:00,757\n80419-1,19A,\"2,3,4,5\",2025-12-29 18:57,2025-12-29 22:47,230\n",
+   "raw": "{\"conflicts\": [{\"a\": \"80411-1\", \"b\": \"80419-1\", \"shared_modules\": [2, 3, 4, 5]}], \"changes\": [{\"vessel_id\": \"80419-1\", \"new_eta\": \"2025-12-29 19:00\", \"new_etd\": \"2025-12-29 22:50\"}], \"approved\": false, \"notes\": \"Delayed 80419-1 by 3 minutes to start at 80411-1's ETD, resolving the only overlap on shared modules.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 868,
+   "tokens_out": 125,
+   "latency_s": 0.917693684000028,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"80411-1\", \"b\": \"80419-1\", \"shared_modules\": [2, 3, 4, 5]}], \"changes\": [{\"vessel_id\": \"80419-1\", \"new_eta\": \"2025-12-29 19:00\", \"new_etd\": \"2025-12-29 22:50\"}], \"approved\": true, \"notes\": \"80419-1 moved to start at 80411-1's ETD; no remaining overlaps on shared modules.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.239,
+ "condition": "single",
+ "seed": 47,
+ "case_id": "R05"
+}

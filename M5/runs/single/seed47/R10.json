@@ -1,0 +1,70 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "74028-1",
+   "b": "74024-1",
+   "shared_modules": [
+    6
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "74024-1",
+     "new_eta": "2025-05-02 21:43",
+     "new_etd": "2025-05-04 07:54"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "74024-1",
+     "new_eta": "2025-05-02 21:43",
+     "new_etd": "2025-05-04 07:54"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 566,
+   "tokens_out": 119,
+   "latency_s": 1.113206875000003,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n74028-1,22C,\"6,7,8\",2025-04-26 14:07,2025-05-02 21:43,9096\n74024-1,22C,\"4,5,6\",2025-04-29 05:59,2025-04-30 16:10,2051\n",
+   "raw": "{\"conflicts\": [{\"a\": \"74028-1\", \"b\": \"74024-1\", \"shared_modules\": [6]}], \"changes\": [{\"vessel_id\": \"74024-1\", \"new_eta\": \"2025-05-02 21:43\", \"new_etd\": \"2025-05-04 07:54\"}], \"approved\": false, \"notes\": \"Delayed 74024-1 to start after 74028-1's ETD to clear the shared module 6 conflict.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 773,
+   "tokens_out": 117,
+   "latency_s": 1.2328327999999829,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"74028-1\", \"b\": \"74024-1\", \"shared_modules\": [6]}], \"changes\": [{\"vessel_id\": \"74024-1\", \"new_eta\": \"2025-05-02 21:43\", \"new_etd\": \"2025-05-04 07:54\"}], \"approved\": true, \"notes\": \"74024-1 moved to start at 74028-1's ETD; no remaining conflicts and all rules satisfied.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.346,
+ "condition": "single",
+ "seed": 47,
+ "case_id": "R10"
+}

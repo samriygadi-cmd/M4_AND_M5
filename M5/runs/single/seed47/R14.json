@@ -1,0 +1,80 @@
+{
+ "status": "ok",
+ "terminated_by": "approved",
+ "reported_conflicts": [
+  {
+   "a": "73074-1",
+   "b": "73066-1",
+   "shared_modules": [
+    13
+   ]
+  },
+  {
+   "a": "73074-1",
+   "b": "72509-3",
+   "shared_modules": [
+    13,
+    14,
+    15,
+    16
+   ]
+  }
+ ],
+ "rounds": [
+  {
+   "round": 1,
+   "changes": [
+    {
+     "vessel_id": "73074-1",
+     "new_eta": "2025-03-15 21:36",
+     "new_etd": "2025-03-16 05:50"
+    }
+   ],
+   "declared_ok": false
+  },
+  {
+   "round": 2,
+   "changes": [
+    {
+     "vessel_id": "73074-1",
+     "new_eta": "2025-03-15 21:36",
+     "new_etd": "2025-03-16 05:50"
+    }
+   ],
+   "declared_ok": true
+  }
+ ],
+ "calls": [
+  {
+   "agent": "single",
+   "round": 1,
+   "tokens_in": 733,
+   "tokens_out": 148,
+   "latency_s": 1.111556869000026,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "vessel_id,berth,modules,eta,etd,duration_min\n72937-2,29A,\"18,19,20,21\",2025-03-15 03:57,2025-03-15 15:29,692\n72330-1,29A,\"4,5,6,7,8\",2025-03-16 12:28,2025-03-17 22:51,2063\n73074-1,29A,\"13,14,15,16\",2025-03-15 07:05,2025-03-15 15:19,494\n72376-1,29A,\"18,19,20\",2025-03-13 03:01,2025-03-15 02:45,2864\n73066-1,29A,\"11,12,13\",2025-03-15 00:31,2025-03-15 21:36,1265\n72509-3,29A,\"11,12,13,14,15,16\",2025-03-14 10:10,2025-03-14 22:52,762\n",
+   "raw": "{\"conflicts\": [{\"a\": \"73074-1\", \"b\": \"73066-1\", \"shared_modules\": [13]}, {\"a\": \"73074-1\", \"b\": \"72509-3\", \"shared_modules\": [13, 14, 15, 16]}], \"changes\": [{\"vessel_id\": \"73074-1\", \"new_eta\": \"2025-03-15 21:36\", \"new_etd\": \"2025-03-16 05:50\"}], \"approved\": false, \"notes\": \"Delayed 73074-1 to start after 73066-1 ends, resolving both conflicts.\"}",
+   "error": null,
+   "rejected_replies": []
+  },
+  {
+   "agent": "single",
+   "round": 2,
+   "tokens_in": 969,
+   "tokens_out": 153,
+   "latency_s": 1.437998346000029,
+   "parse_retries": 0,
+   "model_returned": "deepseek-flash",
+   "prompt": "Now validate your own answer. Re-check the conflict list and every change against the\nconflict rule and every rule for moved vessels, then look for conflicts in the schedule after your changes.\nReply with the same JSON: the complete, corrected \"conflicts\" and \"changes\" (all moved vessels, not only new ones).\nSet \"approved\" to true only if your schedule has no conflict and breaks no rule.",
+   "raw": "{\"conflicts\": [{\"a\": \"73074-1\", \"b\": \"73066-1\", \"shared_modules\": [13]}, {\"a\": \"73074-1\", \"b\": \"72509-3\", \"shared_modules\": [13, 14, 15, 16]}], \"changes\": [{\"vessel_id\": \"73074-1\", \"new_eta\": \"2025-03-15 21:36\", \"new_etd\": \"2025-03-16 05:50\"}], \"approved\": true, \"notes\": \"73074-1 moved to 21:36 (after 73066-1 ends); no remaining conflicts on shared modules.\"}",
+   "error": null,
+   "rejected_replies": []
+  }
+ ],
+ "error": null,
+ "wall_s": 2.55,
+ "condition": "single",
+ "seed": 47,
+ "case_id": "R14"
+}
